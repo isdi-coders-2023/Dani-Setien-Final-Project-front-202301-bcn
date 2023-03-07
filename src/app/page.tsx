@@ -1,11 +1,7 @@
 import "./globalStyles.css";
 
 const Home = () => {
-  return (
-    <>
-      <h1>Hello Next</h1>
-    </>
-  );
+  return <></>;
 };
 
 export default Home;
