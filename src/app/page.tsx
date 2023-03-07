@@ -1,3 +1,11 @@
-export default function Home() {
-  return <></>;
-}
+import "./globalStyles.css";
+
+const Home = () => {
+  return (
+    <>
+      <h1>Hello Next</h1>
+    </>
+  );
+};
+
+export default Home;
