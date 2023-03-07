@@ -1,6 +1,10 @@
+"use client";
+
+import LoginFormStyled from "./LoginFormStyled";
+
 const LoginForm = (): JSX.Element => {
   return (
-    <form action="/send-data-here" method="post">
+    <LoginFormStyled action="/send-data-here" method="post">
       <label htmlFor="email">Email:</label>
       <input
         type="email"
@@ -19,7 +23,7 @@ const LoginForm = (): JSX.Element => {
         maxLength={32}
       />
       <button type="submit">Log in</button>
-    </form>
+    </LoginFormStyled>
   );
 };
 
