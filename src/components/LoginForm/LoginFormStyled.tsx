@@ -3,42 +3,41 @@ import styled from "styled-components";
 const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  margin: 0;
 
   input {
-    margin-top: 8px;
-    border-bottom: 1px solid gray;
-    padding-bottom: 5px;
+    border-bottom: 1px solid ${(props) => props.theme.colors.grayscale.dark};
+
+    padding-bottom: ${(props) => props.theme.input.paddingBottom};
+    margin-top: ${(props) => props.theme.input.marginTop};
+    margin-bottom: ${(props) => props.theme.input.marginBottom};
 
     ::placeholder {
-      padding-left: 15px;
-      font-size: 18px;
+      font-size: ${(props) => props.theme.fontSize.medium};
+      padding-left: ${(props) => props.theme.input.placeholderPaddingLeft};
     }
   }
 
   label {
-    font-size: 20px;
+    font-size: ${(props) => props.theme.fontSize.bigger};
 
-    margin-top: 8px;
-    font-weight: 900;
+    margin-top: ${(props) => props.theme.label.marginTop};
+    padding-bottom: ${(props) => props.theme.label.paddingBottom};
   }
 
   .form {
     &__button {
       width: 100%;
-      background-color: #c2c2c2;
+      background-color: ${(props) => props.theme.colors.grayscale.dark};
 
-      color: #fff;
-      font-size: 24px;
+      color: ${(props) => props.theme.colors.primary};
+      font-size: ${(props) => props.theme.fontSize.button};
+
+      border-radius: ${(props) => props.theme.borderRadius.button};
 
       padding: 12px;
-      border-radius: 25px;
-      margin-top: 50px;
+      margin-top: 35px;
     }
   }
 `;
 
 export default LoginFormStyled;
-
-console.log("colores tema");

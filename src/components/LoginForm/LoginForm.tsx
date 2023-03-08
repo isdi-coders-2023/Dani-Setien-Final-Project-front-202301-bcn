@@ -3,7 +3,7 @@ import LoginFormStyled from "./LoginFormStyled";
 const LoginForm = (): JSX.Element => {
   return (
     <LoginFormStyled action="/send-data-here" method="post">
-      <label htmlFor="email">Email:</label>
+      <label htmlFor="email">Email</label>
       <input
         type="email"
         id="email"
@@ -11,7 +11,7 @@ const LoginForm = (): JSX.Element => {
         placeholder="Enter your email address"
         autoComplete="off"
       />
-      <label htmlFor="password">Password:</label>
+      <label htmlFor="password">Password</label>
       <input
         type="password"
         id="password"
