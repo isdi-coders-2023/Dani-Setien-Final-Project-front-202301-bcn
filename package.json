@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
+    "prepare": "husky install  && chmod ug+x .husky/*",
     "test": "jest",
     "test:coverage": "jest --collect-coverage --passWithNoTests"
   },

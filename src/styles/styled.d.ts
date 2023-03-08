@@ -23,9 +23,34 @@ declare module "styled-components" {
     fontSize: {
       medium: string;
       bigger: string;
+      button: string;
+      title: string;
     };
     margin: {
       page: string;
+      titleBottom: string;
+    };
+    lineHeight: {
+      title: string;
+    };
+    input: {
+      paddingBottom: string;
+      marginTop: string;
+      marginBottom: string;
+      placeholderPaddingLeft: string;
+    };
+    label: {
+      marginTop: string;
+      paddingBottom: string;
+    };
+    borderRadius: {
+      button: string;
+    };
+    form: {
+      width: string;
+    };
+    breakpoint: {
+      small: string;
     };
   }
 }
