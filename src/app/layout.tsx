@@ -1,3 +1,5 @@
+import "./globalStyles.css";
+
 export const metadata = {
   title: "BrushBids auctions",
   description: "Bid on curated artwork",

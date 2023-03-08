@@ -1,5 +1,3 @@
-"use client";
-
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
@@ -11,6 +9,7 @@ const LoginForm = (): JSX.Element => {
         id="email"
         name="email"
         placeholder="Enter your email address"
+        autoComplete="off"
       />
       <label htmlFor="password">Password:</label>
       <input
@@ -22,7 +21,9 @@ const LoginForm = (): JSX.Element => {
         minLength={8}
         maxLength={32}
       />
-      <button type="submit">Log in</button>
+      <button type="submit" className="form__button">
+        Log in
+      </button>
     </LoginFormStyled>
   );
 };

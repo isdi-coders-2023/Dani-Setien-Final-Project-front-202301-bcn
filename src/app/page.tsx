@@ -1,7 +1,5 @@
-import "./globalStyles.css";
-
 const Home = (): JSX.Element => {
-  return <>Main</>;
+  return <h1>Hello, Next.js!</h1>;
 };
-
+console.log("Out");
 export default Home;
