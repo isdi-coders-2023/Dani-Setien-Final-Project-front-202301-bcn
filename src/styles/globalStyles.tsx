@@ -6,26 +6,45 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     margin: 0;
-    padding: 20px;
-    font-family: ${(props) => props.theme.fonts.primary};
+    box-sizing: border-box;
     background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.secondary};
   }
+
+  h1, h2, h3 {
+  font-weight: normal;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
   ul, ol, li {
     list-style-type: none;
     padding: 0;
+    margin: 0;
   }
+
   button, input {
     font-family: inherit;
     font-size: inherit;
     border: none;
   }
+
   button {
     cursor: pointer;
   }
+
   a, a:active, a:visited {
     color: inherit;
     text-decoration: none;
+  }
+
+  html {
+    font-family: ${(props) =>
+      props.theme.fonts
+        .primary}, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+    color: ${(props) => props.theme.colors.secondary};
   }
 `;
 

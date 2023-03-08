@@ -9,12 +9,23 @@ declare module "styled-components" {
         lightest: string;
         ligther: string;
         gray: string;
+        dark: string;
         darker: string;
         darkest: string;
       };
     };
     fonts: {
       primary: string;
+    };
+    fontWeight: {
+      primary: number;
+    };
+    fontSize: {
+      medium: string;
+      bigger: string;
+    };
+    margin: {
+      page: string;
     };
   }
 }
