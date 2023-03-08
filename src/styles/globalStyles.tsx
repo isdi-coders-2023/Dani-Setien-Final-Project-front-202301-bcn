@@ -8,6 +8,9 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     background-color: ${(props) => props.theme.colors.primary};
+    
+    display: flex;
+    justify-content: center;
   }
 
   h1, h2, h3 {

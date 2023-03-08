@@ -29,6 +29,10 @@ const LoginPageStyled = styled.main`
       margin-top: 40px;
     }
   }
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoint.small}) {
+    width: ${(props) => props.theme.form.width};
+  }
 `;
 
 export default LoginPageStyled;

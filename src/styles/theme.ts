@@ -45,6 +45,12 @@ const theme: DefaultTheme = {
   borderRadius: {
     button: "25px",
   },
+  form: {
+    width: "485px",
+  },
+  breakpoint: {
+    small: "525px",
+  },
 };
 
 export default theme;
