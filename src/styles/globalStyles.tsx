@@ -12,10 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3 {
   font-weight: normal;
-  }
-
-  h1 {
-    margin: 0;
+  margin: 0;
   }
 
   ul, ol, li {
