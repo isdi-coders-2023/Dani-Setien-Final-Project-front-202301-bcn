@@ -1,6 +1,6 @@
 import { JwtPayload } from "jwt-decode";
 
-export interface backLoginResponse {
+export interface BackLoginResponse {
   token: string;
 }
 

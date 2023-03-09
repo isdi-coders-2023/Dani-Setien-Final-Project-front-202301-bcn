@@ -1,8 +1,9 @@
 import decodeToken from "jwt-decode";
+import fetch from "node-fetch";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { User, UserCredentials } from "../../types/types";
-import { backLoginResponse, TokenPayload } from "./types";
+import { BackLoginResponse, TokenPayload } from "./types";
 
 interface UseUserStructure {
   loginUser: (userCredentials: UserCredentials) => Promise<void>;
@@ -15,13 +16,13 @@ const useUser = (): UseUserStructure => {
   const loginEndpoint = "/user/login/";
 
   const loginUser = async (userCredentials: UserCredentials) => {
-    const response = await fetch(`${apiUrl}${loginEndpoint}`, {
+    const backResponse = await fetch(`${apiUrl}${loginEndpoint}`, {
       method: "POST",
       body: JSON.stringify(userCredentials),
       headers: { "Content-Type": "application/json" },
     });
 
-    const { token } = (await response.json()) as backLoginResponse;
+    const { token } = (await backResponse.json()) as BackLoginResponse;
 
     const tokenPayload: TokenPayload = decodeToken(token);
     const { id, username } = tokenPayload;
