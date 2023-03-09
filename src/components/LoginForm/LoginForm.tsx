@@ -1,8 +1,32 @@
+import { useState } from "react";
+import { LoginFormFields } from "../../types/types";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
+  const [formFields, setFormFields] = useState<LoginFormFields>({
+    email: "",
+    password: "",
+  });
+
+  const handleFormFieldsChange = ({
+    target: { name, value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setFormFields({
+      ...formFields,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
-    <LoginFormStyled action="/send-data-here" method="post">
+    <LoginFormStyled
+      action="/send-data-here"
+      method="post"
+      onSubmit={handleFormSubmit}
+    >
       <label htmlFor="email">Email</label>
       <input
         type="email"
@@ -10,6 +34,8 @@ const LoginForm = (): JSX.Element => {
         name="email"
         placeholder="Enter your email address"
         autoComplete="off"
+        minLength={8}
+        onChange={handleFormFieldsChange}
       />
       <label htmlFor="password">Password</label>
       <input
@@ -20,6 +46,7 @@ const LoginForm = (): JSX.Element => {
         required
         minLength={8}
         maxLength={32}
+        onChange={handleFormFieldsChange}
       />
       <button type="submit" className="form__button">
         Log in

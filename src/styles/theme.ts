@@ -33,10 +33,12 @@ const theme: DefaultTheme = {
     title: "52px",
   },
   input: {
+    fontSize: "22px",
     paddingBottom: "12px",
+    paddingTop: "12px",
     marginTop: "8px",
     marginBottom: "32px",
-    placeholderPaddingLeft: "12px",
+    paddingLeft: "12px",
   },
   label: {
     marginTop: "8px",
