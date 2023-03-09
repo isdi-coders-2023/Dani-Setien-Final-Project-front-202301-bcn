@@ -1,7 +1,10 @@
-export const metadata = {
-  title: "BrushBids auctions",
-  description: "Bid on curated artwork",
-};
+"use client";
+
+import StyledComponentsRegistry from "../styles/styled-components/registry";
+import { ThemeProvider } from "styled-components";
+import "@fontsource/quattrocento-sans";
+import theme from "@/styles/theme";
+import GlobalStyles from "@/styles/globalStyles";
 
 export default function RootLayout({
   children,
@@ -10,7 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head></head>
+
+      <StyledComponentsRegistry>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <body>{children}</body>
+        </ThemeProvider>
+      </StyledComponentsRegistry>
     </html>
   );
 }
