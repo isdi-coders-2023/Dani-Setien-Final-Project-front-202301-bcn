@@ -1,3 +1,5 @@
+import LoginPage from "./login";
+
 const Home = (): JSX.Element => {
   return <></>;
 };
