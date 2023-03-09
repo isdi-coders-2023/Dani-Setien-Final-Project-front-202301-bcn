@@ -2,9 +2,8 @@
 
 import StyledComponentsRegistry from "../styles/styled-components/registry";
 import { ThemeProvider } from "styled-components";
-import "@fontsource/quattrocento-sans";
-import theme from "@/styles/theme";
-import GlobalStyles from "@/styles/globalStyles";
+import theme from "../styles/theme";
+import GlobalStyles from "../styles/globalStyles";
 
 export default function RootLayout({
   children,
