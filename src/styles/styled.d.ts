@@ -46,5 +46,11 @@ declare module "styled-components" {
     borderRadius: {
       button: string;
     };
+    form: {
+      width: string;
+    };
+    breakpoint: {
+      small: string;
+    };
   }
 }
