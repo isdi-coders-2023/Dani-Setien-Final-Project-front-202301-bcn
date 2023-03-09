@@ -7,6 +7,8 @@ import LoginForm from "./LoginForm";
 describe("Given a LoginFormStyled component", () => {
   describe("When rendered", () => {
     test("Then it should show the label 'Email", () => {
+      const expectedLabel = "Email";
+
       render(
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
@@ -15,12 +17,16 @@ describe("Given a LoginFormStyled component", () => {
         </StyledComponentsRegistry>
       );
 
-      const emailLabel = screen.getByLabelText("Email", { selector: "input" });
+      const emailLabel = screen.getByLabelText(expectedLabel, {
+        selector: "input",
+      });
 
       expect(emailLabel).toBeInTheDocument();
     });
 
     test("Then it should show the input 'Email'", () => {
+      const expectedInput = "Email";
+
       render(
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
@@ -29,12 +35,14 @@ describe("Given a LoginFormStyled component", () => {
         </StyledComponentsRegistry>
       );
 
-      const emailLabel = screen.getByLabelText("Email");
+      const emailLabel = screen.getByLabelText(expectedInput);
 
       expect(emailLabel).toBeInTheDocument();
     });
 
     test("Then it should show the label 'Password'", () => {
+      const expecetedLabel = "Password";
+
       render(
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
@@ -43,7 +51,7 @@ describe("Given a LoginFormStyled component", () => {
         </StyledComponentsRegistry>
       );
 
-      const passwordLabel = screen.getByLabelText("Password", {
+      const passwordLabel = screen.getByLabelText(expecetedLabel, {
         selector: "input",
       });
 
@@ -51,6 +59,8 @@ describe("Given a LoginFormStyled component", () => {
     });
 
     test("Then it should show the input 'Password'", () => {
+      const expectedInput = "Password";
+
       render(
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
@@ -59,12 +69,14 @@ describe("Given a LoginFormStyled component", () => {
         </StyledComponentsRegistry>
       );
 
-      const passwordLabel = screen.getByLabelText("Password");
+      const passwordLabel = screen.getByLabelText(expectedInput);
 
       expect(passwordLabel).toBeInTheDocument();
     });
 
     test("Then it should show the button 'Log in'", () => {
+      const expectedButtonName = "Log in";
+
       render(
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
@@ -73,7 +85,9 @@ describe("Given a LoginFormStyled component", () => {
         </StyledComponentsRegistry>
       );
 
-      const loginButton = screen.getByRole("button", { name: "Log in" });
+      const loginButton = screen.getByRole("button", {
+        name: expectedButtonName,
+      });
 
       expect(loginButton).toBeInTheDocument();
     });

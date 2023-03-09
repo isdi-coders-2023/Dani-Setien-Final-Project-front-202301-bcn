@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     box-sizing: border-box;
-    background-color: ${(props) => props.theme.colors.primary};
     
     display: flex;
     justify-content: center;
@@ -40,11 +39,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-family: ${(props) =>
-      props.theme.fonts
-        .primary}, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-    color: ${(props) => props.theme.colors.secondary};
+
   }
 `;
 
