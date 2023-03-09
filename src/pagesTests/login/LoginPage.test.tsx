@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../../styles/globalStyles";
 import StyledComponentsRegistry from "../../styles/styled-components/registry";
 import theme from "../../styles/theme";
-import LoginPage from "./page";
+import LoginPage from "../../pages/login";
 
 describe("Given a LoginPage", () => {
   describe("When rendered", () => {
