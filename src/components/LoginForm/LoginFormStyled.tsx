@@ -5,15 +5,19 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
 
   input {
+    font-size: ${(props) => props.theme.input.fontSize};
+
     border-bottom: 1px solid ${(props) => props.theme.colors.grayscale.dark};
 
     padding-bottom: ${(props) => props.theme.input.paddingBottom};
+    padding-top: ${(props) => props.theme.input.paddingTop};
+    padding-left: ${(props) => props.theme.input.paddingLeft};
+
     margin-top: ${(props) => props.theme.input.marginTop};
     margin-bottom: ${(props) => props.theme.input.marginBottom};
 
     ::placeholder {
       font-size: ${(props) => props.theme.fontSize.medium};
-      padding-left: ${(props) => props.theme.input.placeholderPaddingLeft};
     }
   }
 

@@ -34,10 +34,12 @@ declare module "styled-components" {
       title: string;
     };
     input: {
+      fontSize: string;
       paddingBottom: string;
       marginTop: string;
+      paddingTop: string;
       marginBottom: string;
-      placeholderPaddingLeft: string;
+      paddingLeft: string;
     };
     label: {
       marginTop: string;
