@@ -1,7 +1,8 @@
 import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
 import { act } from "react-dom/test-utils";
-import Wrapper from "../../mocks/Wrapper";
+import Wrapper from "../../utils/testUtils/Wrapper";
+import { store } from "../../store";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { User, UserCredentials } from "../../types/types";
 import { TokenPayload } from "./types";
@@ -11,12 +12,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-const mockDispatcher = jest.fn();
-
-jest.mock("../../store/hooks", () => ({
-  ...jest.requireActual("../../store/hooks"),
-  useAppDispatch: () => mockDispatcher,
-}));
+const mockDispatcher = jest.spyOn(store, "dispatch");
 
 jest.mock("jwt-decode", () => jest.fn());
 
@@ -43,7 +39,9 @@ describe("Given a loginUser function", () => {
         result: {
           current: { loginUser },
         },
-      } = renderHook(() => useUser(), { wrapper: Wrapper });
+      } = renderHook(() => useUser(), {
+        wrapper: Wrapper,
+      });
 
       (decodeToken as jest.MockedFunction<typeof decodeToken>).mockReturnValue(
         mockTokenPayload
@@ -54,8 +52,7 @@ describe("Given a loginUser function", () => {
         token: "mockToken",
       };
 
-      await loginUser(userCredentials);
-
+      await act(async () => loginUser(userCredentials));
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
       );
