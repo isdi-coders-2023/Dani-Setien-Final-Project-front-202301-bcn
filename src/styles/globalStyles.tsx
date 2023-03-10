@@ -43,6 +43,11 @@ const GlobalStyles = createGlobalStyle`
     sans-serif;
 
   }
+
+  .toast-error {
+    background-color: ${(props) => props.theme.colors.modalError};
+    color: ${(props) => props.theme.colors.secondary};
+  }
 `;
 
 export default GlobalStyles;

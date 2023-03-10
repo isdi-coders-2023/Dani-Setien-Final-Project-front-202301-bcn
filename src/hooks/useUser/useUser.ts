@@ -1,5 +1,6 @@
 import decodeToken from "jwt-decode";
 import fetch from "node-fetch";
+import displayErrorModal from "../../components/LoginForm/modals/errorModal";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { User, UserCredentials } from "../../types/types";
@@ -16,26 +17,38 @@ const useUser = (): UseUserStructure => {
   const loginEndpoint = "user/login/";
 
   const loginUser = async (userCredentials: UserCredentials) => {
-    const backResponse = await fetch(`${apiUrl}${loginEndpoint}`, {
-      method: "POST",
-      body: JSON.stringify(userCredentials),
-      headers: { "Content-Type": "application/json" },
-    });
+    try {
+      const backResponse = await fetch(`${apiUrl}${loginEndpoint}`, {
+        method: "POST",
+        body: JSON.stringify(userCredentials),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    const { token } = (await backResponse.json()) as BackLoginResponse;
+      if (!backResponse.ok) {
+        const rejectedCredentialsMessage = "Invalid user credentials";
 
-    const tokenPayload: TokenPayload = decodeToken(token);
-    const { id, username } = tokenPayload;
+        displayErrorModal(rejectedCredentialsMessage);
 
-    const user: User = {
-      id,
-      username,
-      token,
-    };
+        return;
+      }
 
-    dispatch(loginUserActionCreator(user));
+      const { token } = (await backResponse.json()) as BackLoginResponse;
 
-    localStorage.setItem("token", token);
+      const tokenPayload: TokenPayload = decodeToken(token);
+      const { id, username } = tokenPayload;
+
+      const user: User = {
+        id,
+        username,
+        token,
+      };
+
+      dispatch(loginUserActionCreator(user));
+
+      localStorage.setItem("token", token);
+    } catch (error: unknown) {
+      displayErrorModal((error as Error).message);
+    }
   };
 
   return { loginUser };

@@ -19,6 +19,7 @@ jest.mock("jwt-decode", () => jest.fn());
 jest.mock("node-fetch", () =>
   jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue({ token: "mockToken" }),
+    ok: true,
   })
 );
 
