@@ -31,7 +31,7 @@ const LoginFormStyled = styled.form`
   .form {
     &__button {
       width: 100%;
-      background-color: ${(props) => props.theme.colors.grayscale.dark};
+      background-color: ${(props) => props.theme.colors.secondary};
 
       color: ${(props) => props.theme.colors.primary};
       font-size: ${(props) => props.theme.fontSize.button};
@@ -40,6 +40,10 @@ const LoginFormStyled = styled.form`
 
       padding: 12px;
       margin-top: 35px;
+
+      :disabled {
+        background-color: ${(props) => props.theme.colors.grayscale.dark};
+      }
     }
   }
 `;
