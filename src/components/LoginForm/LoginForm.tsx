@@ -1,11 +1,12 @@
 import { useState } from "react";
-import useUser from "../../hooks/useUser/useUser";
-import { LoginFormFields } from "../../types/types";
+import { LoginFormFields, UserCredentials } from "../../types/types";
 import LoginFormStyled from "./LoginFormStyled";
 
-const LoginForm = (): JSX.Element => {
-  const { loginUser } = useUser();
+interface LoginFormProps {
+  loginUser: (userCredentials: UserCredentials) => Promise<void>;
+}
 
+const LoginForm = ({ loginUser }: LoginFormProps): JSX.Element => {
   const [formFields, setFormFields] = useState<LoginFormFields>({
     email: "",
     password: "",
