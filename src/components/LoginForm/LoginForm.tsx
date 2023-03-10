@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LoginFormFields, UserCredentials } from "../../types/types";
+import { LoginFormFields, UserCredentials } from "../../types/userTypes";
 import LoginFormStyled from "./LoginFormStyled";
 
 interface LoginFormProps {

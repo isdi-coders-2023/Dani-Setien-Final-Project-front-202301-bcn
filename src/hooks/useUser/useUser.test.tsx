@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 import Wrapper from "../../utils/testUtils/Wrapper";
 import { store } from "../../store";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
-import { User, UserCredentials } from "../../types/types";
+import { User, UserCredentials } from "../../types/userTypes";
 import { TokenPayload } from "./types";
 import useUser from "./useUser";
 
