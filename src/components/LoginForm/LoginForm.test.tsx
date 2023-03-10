@@ -97,7 +97,7 @@ describe("Given a LoginFormStyled component", () => {
     });
   });
 
-  describe("When the user fills the Form and then submits it", () => {
+  describe("When the user fills the Form with enough information and then submits it", () => {
     test("Then the loginUser function should be called with the information the user provided", async () => {
       const mockUserCredentials: UserCredentials = {
         email: "admin@user.com",
@@ -108,6 +108,7 @@ describe("Given a LoginFormStyled component", () => {
 
       const emailInput = screen.getByLabelText("Email");
       const passwordInput = screen.getByLabelText("Password");
+
       const loginButton = screen.getByRole("button", {
         name: "Log in",
       });
@@ -124,6 +125,35 @@ describe("Given a LoginFormStyled component", () => {
       await act(async () => await userEvent.click(loginButton));
 
       expect(mockLoginUser).toHaveBeenCalledWith(mockUserCredentials);
+    });
+  });
+
+  describe("When the user fills the Form with too little information", () => {
+    test("Then the Log in button should be disabled", async () => {
+      const mockUserCredentials: UserCredentials = {
+        email: "admin@user.com",
+        password: "short",
+      };
+
+      renderWithProviders(<LoginForm loginUser={mockLoginUser} />);
+
+      const emailInput = screen.getByLabelText("Email");
+      const passwordInput = screen.getByLabelText("Password");
+
+      const loginButton = screen.getByRole("button", {
+        name: "Log in",
+      });
+
+      await act(
+        async () => await userEvent.type(emailInput, mockUserCredentials.email)
+      );
+
+      await act(
+        async () =>
+          await userEvent.type(passwordInput, mockUserCredentials.password)
+      );
+
+      expect(loginButton).toHaveAttribute("disabled");
     });
   });
 });
