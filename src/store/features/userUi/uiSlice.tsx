@@ -16,9 +16,19 @@ const uiSlice = createSlice({
       ...currentUserState,
       isLoading: true,
     }),
+    unsetIsLoading: (
+      currentUserState: UiState,
+      action: PayloadAction<void>
+    ): UiState => ({
+      ...currentUserState,
+      isLoading: false,
+    }),
   },
 });
 
-export const { setIsLoading: setIsLoadingActionCreator } = uiSlice.actions;
+export const {
+  setIsLoading: setIsLoadingActionCreator,
+  unsetIsLoading: unsetIsLoadingActionCreator,
+} = uiSlice.actions;
 
 export const uiReducer = uiSlice.reducer;
