@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import displayErrorModal from "../../components/LoginForm/modals/errorModal";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { useAppDispatch } from "../../store/hooks";
-import { User, UserCredentials } from "../../types/types";
+import { User, UserCredentials } from "../../types/userTypes";
 import { BackLoginResponse, TokenPayload } from "./types";
 
 interface UseUserStructure {

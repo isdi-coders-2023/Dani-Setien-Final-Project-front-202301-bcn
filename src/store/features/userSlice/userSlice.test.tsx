@@ -1,4 +1,4 @@
-import { User, UserState } from "../../../types/types";
+import { User, UserState } from "../../../types/userTypes";
 import {
   initialUserState,
   loginUserActionCreator,
