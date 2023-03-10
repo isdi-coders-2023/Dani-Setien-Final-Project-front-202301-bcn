@@ -1,10 +1,6 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme";
-import StyledComponentsRegistry from "../../styles/styled-components/registry";
 import LoginForm from "./LoginForm";
-import GlobalStyles from "../../styles/globalStyles";
 import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 describe("Given a LoginFormStyled component", () => {

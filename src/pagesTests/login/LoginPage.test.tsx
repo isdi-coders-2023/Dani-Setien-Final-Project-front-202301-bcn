@@ -4,20 +4,14 @@ import GlobalStyles from "../../styles/globalStyles";
 import StyledComponentsRegistry from "../../styles/styled-components/registry";
 import theme from "../../styles/theme";
 import LoginPage from "../../pages/login";
+import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 describe("Given a LoginPage", () => {
   describe("When rendered", () => {
     test("Then it should show the Brushbids logo", () => {
       const expectedLogoName = "brushbids logo";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginPage />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginPage />);
 
       const brushbidsLogo = screen.getByRole("img", {
         name: expectedLogoName,
@@ -30,14 +24,7 @@ describe("Given a LoginPage", () => {
       const expectedTitle =
         "Log in to collect art by the world's leading artists";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginPage />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginPage />);
 
       const loginPageTitle = screen.getByRole("heading", {
         name: expectedTitle,
@@ -49,14 +36,7 @@ describe("Given a LoginPage", () => {
     test(`Then it should show a LoginForm component with its 'Log in' button`, () => {
       const expectedButtonName = "Log in";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginPage />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginPage />);
 
       const loginButton = screen.getByRole("button", {
         name: expectedButtonName,
@@ -68,14 +48,7 @@ describe("Given a LoginPage", () => {
     test("Then it should show the question 'Do you want an account?'", () => {
       const expectedText = "Do you want an account?";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginPage />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginPage />);
 
       const registerQuestion = screen.getByText(expectedText);
 

@@ -1,8 +1,11 @@
 import { useState } from "react";
+import useUser from "../../hooks/useUser/useUser";
 import { LoginFormFields } from "../../types/types";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
+  const { loginUser } = useUser();
+
   const [formFields, setFormFields] = useState<LoginFormFields>({
     email: "",
     password: "",
@@ -19,6 +22,8 @@ const LoginForm = (): JSX.Element => {
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    loginUser({ ...formFields });
   };
 
   return (
