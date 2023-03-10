@@ -1,9 +1,9 @@
-import { User, UserState } from "../../../types/userTypes";
 import {
   initialUserState,
   loginUserActionCreator,
   userReducer,
-} from "./userSlice";
+} from "../../store/features/userSlice/userSlice";
+import { User, UserState } from "../../types/userTypes";
 
 describe("Given a loginUser function", () => {
   describe("When it receives a user", () => {

@@ -1,12 +1,12 @@
 import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
 import { act } from "react-dom/test-utils";
-import Wrapper from "../../utils/testUtils/Wrapper";
-import { store } from "../../store";
-import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
-import { User, UserCredentials } from "../../types/userTypes";
-import { TokenPayload } from "./types";
-import useUser from "./useUser";
+import { store } from "../store";
+import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
+import { User, UserCredentials } from "../types/userTypes";
+import { TokenPayload } from "../hooks/useUser/types";
+import useUser from "../hooks/useUser/useUser";
+import Wrapper from "../utils/testUtils/Wrapper";
 
 afterEach(() => {
   jest.clearAllMocks();

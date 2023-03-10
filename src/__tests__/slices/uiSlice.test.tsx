@@ -1,12 +1,10 @@
-import { UiState } from "../../../types/uiTypes";
+import { UiState } from "../../types/uiTypes";
 import {
   initialUiState,
   setIsLoadingActionCreator,
   uiReducer,
   unsetIsLoadingActionCreator,
-} from "./uiSlice";
-
-export {};
+} from "../../store/features/userUi/uiSlice";
 
 describe("Given a uiSlice", () => {
   describe("When its function setIsLoading is called", () => {
