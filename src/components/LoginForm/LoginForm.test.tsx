@@ -1,24 +1,18 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ThemeProvider } from "styled-components";
 import theme from "../../styles/theme";
 import StyledComponentsRegistry from "../../styles/styled-components/registry";
 import LoginForm from "./LoginForm";
 import GlobalStyles from "../../styles/globalStyles";
+import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 describe("Given a LoginFormStyled component", () => {
-  describe("When rendered", () => {
+  describe("When renderWithProvidersed", () => {
     test("Then it should show the label 'Email", () => {
       const expectedLabel = "Email";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const emailLabel = screen.getByLabelText(expectedLabel, {
         selector: "input",
@@ -30,14 +24,7 @@ describe("Given a LoginFormStyled component", () => {
     test("Then it should show the input 'Email'", () => {
       const expectedInput = "Email";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const emailLabel = screen.getByLabelText(expectedInput);
 
@@ -47,14 +34,7 @@ describe("Given a LoginFormStyled component", () => {
     test("Then it should show the label 'Password'", () => {
       const expecetedLabel = "Password";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const passwordLabel = screen.getByLabelText(expecetedLabel, {
         selector: "input",
@@ -66,14 +46,7 @@ describe("Given a LoginFormStyled component", () => {
     test("Then it should show the input 'Password'", () => {
       const expectedInput = "Password";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const passwordLabel = screen.getByLabelText(expectedInput);
 
@@ -83,14 +56,7 @@ describe("Given a LoginFormStyled component", () => {
     test("Then it should show the button 'Log in'", () => {
       const expectedButtonName = "Log in";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const loginButton = screen.getByRole("button", {
         name: expectedButtonName,
@@ -104,14 +70,7 @@ describe("Given a LoginFormStyled component", () => {
     test("Then the Email input value should be 'mail@address.com'", async () => {
       const userEmail = "mail@address.com";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const emailInput = screen.getByLabelText("Email");
 
@@ -125,14 +84,7 @@ describe("Given a LoginFormStyled component", () => {
     test("Then the Password input value should be 'username1234'", async () => {
       const userPassword = "username1234";
 
-      render(
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <LoginForm />
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      );
+      renderWithProviders(<LoginForm />);
 
       const passwordInput = screen.getByLabelText("Password");
 
