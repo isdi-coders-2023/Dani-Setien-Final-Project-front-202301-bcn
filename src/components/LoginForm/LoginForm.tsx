@@ -7,6 +7,8 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({ loginUser }: LoginFormProps): JSX.Element => {
+  const minimumFormFieldLength = 8;
+
   const [formFields, setFormFields] = useState<LoginFormFields>({
     email: "",
     password: "",
@@ -54,7 +56,14 @@ const LoginForm = ({ loginUser }: LoginFormProps): JSX.Element => {
         maxLength={32}
         onChange={handleFormFieldsChange}
       />
-      <button type="submit" className="form__button">
+      <button
+        type="submit"
+        className="form__button"
+        disabled={
+          formFields.email.length < minimumFormFieldLength ||
+          formFields.password.length < minimumFormFieldLength
+        }
+      >
         Log in
       </button>
     </LoginFormStyled>
