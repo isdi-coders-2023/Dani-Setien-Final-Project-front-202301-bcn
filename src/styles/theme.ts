@@ -12,6 +12,7 @@ const theme: DefaultTheme = {
       darker: "#999",
       darkest: "#707070",
     },
+    modalError: "#F3E4E2",
   },
   fonts: {
     primary: "Quattrocento Sans",

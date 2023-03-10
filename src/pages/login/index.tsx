@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import Image from "next/image";
 import LoginPageStyled from "./LoginPageStyled";
@@ -8,6 +9,7 @@ const LoginPage = () => {
 
   return (
     <LoginPageStyled className="login-page">
+      <ToastContainer />
       <Image
         src={"/img/brushbids-full-logo.webp"}
         alt="brushbids logo"

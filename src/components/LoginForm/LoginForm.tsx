@@ -15,11 +15,11 @@ const LoginForm = ({ loginUser }: LoginFormProps): JSX.Element => {
   });
 
   const handleFormFieldsChange = ({
-    target: { name, value },
+    target: { id, value },
   }: React.ChangeEvent<HTMLInputElement>) => {
     setFormFields({
       ...formFields,
-      [name]: value,
+      [id]: value,
     });
   };
 
@@ -39,7 +39,6 @@ const LoginForm = ({ loginUser }: LoginFormProps): JSX.Element => {
       <input
         type="email"
         id="email"
-        name="email"
         placeholder="Enter your email address"
         autoComplete="off"
         minLength={8}
@@ -49,7 +48,6 @@ const LoginForm = ({ loginUser }: LoginFormProps): JSX.Element => {
       <input
         type="password"
         id="password"
-        name="password"
         placeholder="Enter your password"
         required
         minLength={8}
