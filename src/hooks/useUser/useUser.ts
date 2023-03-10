@@ -12,8 +12,8 @@ interface UseUserStructure {
 const useUser = (): UseUserStructure => {
   const dispatch = useAppDispatch();
 
-  const apiUrl = process.env.REACT_APP_URL_API!;
-  const loginEndpoint = "/user/login/";
+  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL!;
+  const loginEndpoint = "user/login/";
 
   const loginUser = async (userCredentials: UserCredentials) => {
     const backResponse = await fetch(`${apiUrl}${loginEndpoint}`, {

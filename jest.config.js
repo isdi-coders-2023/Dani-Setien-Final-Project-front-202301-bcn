@@ -17,6 +17,9 @@ const customJestConfig = {
     "!src/index.tsx",
     "!next.config.js",
     "!next-env.d.ts",
+    "!src/styles/styled.d.ts",
+    "!src/pages/_app.tsx",
+    "!src/pages/_document.tsx",
   ],
 };
 

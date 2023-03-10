@@ -5,8 +5,6 @@ import {
   userReducer,
 } from "./userSlice";
 
-export {};
-
 describe("Given a loginUser function", () => {
   describe("When it receives a user", () => {
     test("Then it should set the user's isLogged property to true", () => {
