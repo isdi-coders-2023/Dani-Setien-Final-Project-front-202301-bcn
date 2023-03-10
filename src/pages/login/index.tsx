@@ -1,5 +1,3 @@
-"use client";
-
 import LoginForm from "../../components/LoginForm/LoginForm";
 import Image from "next/image";
 import LoginPageStyled from "./LoginPageStyled";

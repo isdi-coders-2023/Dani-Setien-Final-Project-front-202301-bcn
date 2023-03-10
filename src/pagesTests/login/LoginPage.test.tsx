@@ -1,8 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "../../styles/globalStyles";
-import StyledComponentsRegistry from "../../styles/styled-components/registry";
-import theme from "../../styles/theme";
+import { screen } from "@testing-library/react";
 import LoginPage from "../../pages/login";
 import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
