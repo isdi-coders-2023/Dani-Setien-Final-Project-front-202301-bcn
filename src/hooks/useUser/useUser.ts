@@ -9,7 +9,7 @@ import {
 } from "../../store/features/userUi/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { User, UserCredentials } from "../../types/userTypes";
-import routeUtils from "../../utils/testUtils/routeUtils/routeUtils";
+import routeUtils from "../../utils/routeUtils/routeUtils";
 import { BackLoginResponse, TokenPayload } from "./types";
 
 interface UseUserStructure {
