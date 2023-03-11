@@ -5,12 +5,14 @@ import {
   combineReducers,
   PreloadedState,
 } from "@reduxjs/toolkit";
+import { paintingsReducer } from "./features/paintingsSlice/paintingsSlice";
 import { userReducer } from "./features/userSlice/userSlice";
 import { uiReducer } from "./features/userUi/uiSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   ui: uiReducer,
+  paintings: paintingsReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
