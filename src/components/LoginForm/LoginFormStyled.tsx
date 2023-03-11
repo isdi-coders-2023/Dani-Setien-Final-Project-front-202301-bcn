@@ -4,6 +4,8 @@ const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
 
+  width: ${(props) => props.theme.form.width};
+
   input {
     font-size: ${(props) => props.theme.input.fontSize};
 

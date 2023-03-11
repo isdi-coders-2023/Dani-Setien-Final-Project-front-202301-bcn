@@ -31,13 +31,11 @@ const useUser = (): UseUserStructure => {
       });
 
       if (!backResponse.ok) {
-        dispatch(unsetIsLoadingActionCreator());
-
         const rejectedCredentialsMessage = "Invalid user credentials";
 
-        displayErrorModal(rejectedCredentialsMessage);
+        const rejectedCredentialsError = new Error(rejectedCredentialsMessage);
 
-        return;
+        throw rejectedCredentialsError;
       }
 
       const { token } = (await backResponse.json()) as BackLoginResponse;
@@ -57,9 +55,9 @@ const useUser = (): UseUserStructure => {
 
       dispatch(unsetIsLoadingActionCreator());
     } catch (error: unknown) {
-      displayErrorModal((error as Error).message);
-
       dispatch(unsetIsLoadingActionCreator());
+
+      displayErrorModal((error as Error).message);
     }
   };
 

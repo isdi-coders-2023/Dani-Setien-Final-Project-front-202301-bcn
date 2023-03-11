@@ -10,6 +10,8 @@ const GlobalStyles = createGlobalStyle`
     
     display: flex;
     justify-content: center;
+
+
   }
 
   h1, h2, h3 {

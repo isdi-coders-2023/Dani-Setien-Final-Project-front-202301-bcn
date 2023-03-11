@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-const LoginPageStyled = styled.main`
+const LoginPageStyled = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100;
+  align-content: center;
 
   margin: ${(props) => props.theme.margin.page};
 
@@ -19,6 +21,8 @@ const LoginPageStyled = styled.main`
       line-height: ${(props) => props.theme.lineHeight.title};
 
       margin-bottom: ${(props) => props.theme.margin.titleBottom};
+
+      width: ${(props) => props.theme.form.width};
     }
     &__register-text {
       align-self: center;

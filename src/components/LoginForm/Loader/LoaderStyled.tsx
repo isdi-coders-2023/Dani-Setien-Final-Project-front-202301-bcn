@@ -1,35 +1,64 @@
 import styled from "styled-components";
 
 const LoaderStyled = styled.div`
-  .container {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgb(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+
+  div {
+    display: block;
   }
 
-  .loader {
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 10px solid #505050;
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite;
-  }
+  .progress-bar {
+    &__progress {
+      animation: loader 15s ease infinite;
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
+      background: ${(props) => props.theme.colors.accent};
+
+      padding: 2px;
+      margin-top: 1px;
     }
+  }
+
+  @keyframes loader {
+    0% {
+      width: 0;
+    }
+
+    2% {
+      width: 10%;
+    }
+
+    10% {
+      width: 24%;
+    }
+
+    20% {
+      width: 41%;
+    }
+
+    30% {
+      width: 50%;
+    }
+
+    40% {
+      width: 52%;
+    }
+
+    45% {
+      width: 60%;
+    }
+
+    65% {
+      width: 76%;
+    }
+
+    80% {
+      width: 86%;
+    }
+
     100% {
-      transform: rotate(360deg);
+      width: 100%;
     }
   }
 `;
