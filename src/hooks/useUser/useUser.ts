@@ -1,4 +1,5 @@
 import decodeToken from "jwt-decode";
+import { useRouter } from "next/router";
 import fetch from "node-fetch";
 import displayErrorModal from "../../components/LoginForm/modals/errorModal";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
@@ -20,6 +21,8 @@ const useUser = (): UseUserStructure => {
   const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL!;
   const loginEndpoint = "user/login/";
 
+  const router = useRouter();
+
   const loginUser = async (userCredentials: UserCredentials) => {
     dispatch(setIsLoadingActionCreator());
 
@@ -33,9 +36,7 @@ const useUser = (): UseUserStructure => {
       if (!backResponse.ok) {
         const rejectedCredentialsMessage = "Invalid user credentials";
 
-        const rejectedCredentialsError = new Error(rejectedCredentialsMessage);
-
-        throw rejectedCredentialsError;
+        throw new Error(rejectedCredentialsMessage);
       }
 
       const { token } = (await backResponse.json()) as BackLoginResponse;
@@ -54,6 +55,8 @@ const useUser = (): UseUserStructure => {
       localStorage.setItem("token", token);
 
       dispatch(unsetIsLoadingActionCreator());
+
+      router.push("/");
     } catch (error: unknown) {
       dispatch(unsetIsLoadingActionCreator());
 
