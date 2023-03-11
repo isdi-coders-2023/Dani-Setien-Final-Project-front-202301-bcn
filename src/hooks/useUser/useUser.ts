@@ -2,6 +2,10 @@ import decodeToken from "jwt-decode";
 import fetch from "node-fetch";
 import displayErrorModal from "../../components/LoginForm/modals/errorModal";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
+import {
+  setIsLoadingActionCreator,
+  unsetIsLoadingActionCreator,
+} from "../../store/features/userUi/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { User, UserCredentials } from "../../types/userTypes";
 import { BackLoginResponse, TokenPayload } from "./types";
@@ -17,6 +21,8 @@ const useUser = (): UseUserStructure => {
   const loginEndpoint = "user/login/";
 
   const loginUser = async (userCredentials: UserCredentials) => {
+    dispatch(setIsLoadingActionCreator());
+
     try {
       const backResponse = await fetch(`${apiUrl}${loginEndpoint}`, {
         method: "POST",
@@ -27,9 +33,9 @@ const useUser = (): UseUserStructure => {
       if (!backResponse.ok) {
         const rejectedCredentialsMessage = "Invalid user credentials";
 
-        displayErrorModal(rejectedCredentialsMessage);
+        const rejectedCredentialsError = new Error(rejectedCredentialsMessage);
 
-        return;
+        throw rejectedCredentialsError;
       }
 
       const { token } = (await backResponse.json()) as BackLoginResponse;
@@ -46,7 +52,11 @@ const useUser = (): UseUserStructure => {
       dispatch(loginUserActionCreator(user));
 
       localStorage.setItem("token", token);
+
+      dispatch(unsetIsLoadingActionCreator());
     } catch (error: unknown) {
+      dispatch(unsetIsLoadingActionCreator());
+
       displayErrorModal((error as Error).message);
     }
   };
