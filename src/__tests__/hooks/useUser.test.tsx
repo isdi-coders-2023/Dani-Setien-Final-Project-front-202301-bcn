@@ -16,6 +16,8 @@ const mockDispatcher = jest.spyOn(store, "dispatch");
 
 jest.mock("jwt-decode", () => jest.fn());
 
+jest.mock("next/router", () => require("next-router-mock"));
+
 jest.mock("node-fetch", () =>
   jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue({ token: "mockToken" }),
