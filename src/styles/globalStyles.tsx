@@ -4,14 +4,13 @@ const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }
+
   body {
     margin: 0;
     box-sizing: border-box;
     
     display: flex;
     justify-content: center;
-
-
   }
 
   h1, h2, h3 {
@@ -43,7 +42,6 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-
   }
 
   .toast-error {

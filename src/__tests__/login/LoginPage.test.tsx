@@ -2,6 +2,8 @@ import { screen } from "@testing-library/react";
 import LoginPage from "../../pages/login";
 import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
+jest.mock("next/router", () => require("next-router-mock"));
+
 describe("Given a LoginPage", () => {
   describe("When rendered", () => {
     test("Then it should show the Brushbids logo", () => {

@@ -3,8 +3,8 @@ import styled from "styled-components";
 const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-
-  width: ${(props) => props.theme.form.width};
+  display: flex;
+  width: 100%;
 
   input {
     font-size: ${(props) => props.theme.input.fontSize};

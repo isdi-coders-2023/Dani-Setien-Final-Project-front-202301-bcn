@@ -1,12 +1,12 @@
 import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
 import { act } from "react-dom/test-utils";
-import { store } from "../../store";
-import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
-import { User, UserCredentials } from "../../types/userTypes";
-import { TokenPayload } from "../../hooks/useUser/types";
-import useUser from "../../hooks/useUser/useUser";
-import Wrapper from "../../utils/testUtils/Wrapper";
+import { store } from "../../../store";
+import { loginUserActionCreator } from "../../../store/features/userSlice/userSlice";
+import { User, UserCredentials } from "../../../types/userTypes";
+import { TokenPayload } from "../../../hooks/useUser/types";
+import useUser from "../../../hooks/useUser/useUser";
+import Wrapper from "../../../utils/testUtils/Wrapper";
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -15,6 +15,8 @@ afterEach(() => {
 const mockDispatcher = jest.spyOn(store, "dispatch");
 
 jest.mock("jwt-decode", () => jest.fn());
+
+jest.mock("next/router", () => require("next-router-mock"));
 
 jest.mock("node-fetch", () =>
   jest.fn().mockResolvedValue({
@@ -54,6 +56,7 @@ describe("Given a loginUser function", () => {
       };
 
       await act(async () => loginUser(userCredentials));
+
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
       );
