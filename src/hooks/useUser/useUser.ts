@@ -9,7 +9,10 @@ import {
 } from "../../store/features/userUi/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { User, UserCredentials } from "../../types/userTypes";
-import routeUtils from "../../utils/routeUtils/routeUtils";
+import {
+  frontRouteUtils,
+  backRouteUtils,
+} from "../../utils/routeUtils/routeUtils";
 import { BackLoginResponse, TokenPayload } from "./types";
 
 interface UseUserStructure {
@@ -17,12 +20,13 @@ interface UseUserStructure {
 }
 
 const useUser = (): UseUserStructure => {
+  const router = useRouter();
+
   const dispatch = useAppDispatch();
 
   const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL!;
-  const loginEndpoint = "user/login/";
-
-  const router = useRouter();
+  const { homePage } = frontRouteUtils;
+  const { loginEndpoint } = backRouteUtils;
 
   const loginUser = async (userCredentials: UserCredentials) => {
     dispatch(setIsLoadingActionCreator());
@@ -57,7 +61,7 @@ const useUser = (): UseUserStructure => {
 
       dispatch(unsetIsLoadingActionCreator());
 
-      router.push(routeUtils.homePage);
+      router.push(homePage);
     } catch (error: unknown) {
       dispatch(unsetIsLoadingActionCreator());
 
