@@ -1,4 +1,7 @@
 import { DefaultTheme } from "styled-components";
+import { breakpoints } from "../utils/stylesUtils/breakpoints";
+
+const { smallest, small, medium, large, largest } = breakpoints;
 
 const theme: DefaultTheme = {
   colors: {
@@ -53,17 +56,22 @@ const theme: DefaultTheme = {
     width: "485px",
   },
   breakpoint: {
-    small: "525px",
+    smallest: `${smallest}px`,
+    small: `${small}px`,
+    medium: `${medium}px`,
+    large: `${large}px`,
+    largest: `${largest}px`,
   },
   cardPainting: {
     width: "320px",
     buttonWidthAndHeigth: "80px",
-    buttonDistanceToEdge: "8px;",
+    buttonDistanceToEdge: "15px;",
     informationMarginTop: "10px",
     fontSizeAuthor: "30px",
     fontSizeNameOfPainting: "23px",
     fontSizePrice: "27px",
     fontSizeFavoriteIcon: "90px",
+    imageWidth: "320px",
   },
 };
 

@@ -18,6 +18,8 @@ export interface Painting {
   highlightOrder: number;
   summary: string;
   image: string;
+  width: number;
+  height: number;
   bidCount?: number;
 }
 

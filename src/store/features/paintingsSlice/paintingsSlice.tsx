@@ -10,9 +10,7 @@ const paintingsSlice = createSlice({
     loadPaintings: (
       currentPaintingsState: Paintings,
       action: PayloadAction<Paintings>
-    ) => ({
-      ...action.payload,
-    }),
+    ) => [...action.payload],
   },
 });
 
