@@ -6,7 +6,7 @@ const PaintingCardStyled = styled.li`
   white-space: nowrap;
   overflow: clip;
 
-  margin-top: 30px;
+  margin-top: 35px;
 
   .image-container {
     display: flex;
@@ -16,8 +16,9 @@ const PaintingCardStyled = styled.li`
       object-fit: contain;
       object-position: bottom;
 
-      width: 320px;
+      width: ${(props) => props.theme.cardPainting.imageWidth};
       height: fit-content;
+      z-index: -1;
     }
 
     .button {
@@ -82,6 +83,10 @@ const PaintingCardStyled = styled.li`
   .button {
     color: ${(props) => props.theme.colors.grayscale.darkest};
     font-size: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

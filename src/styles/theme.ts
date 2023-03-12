@@ -53,7 +53,7 @@ const theme: DefaultTheme = {
     width: "485px",
   },
   breakpoint: {
-    small: "525px",
+    smallest: "525px",
   },
   cardPainting: {
     width: "320px",
@@ -64,6 +64,7 @@ const theme: DefaultTheme = {
     fontSizeNameOfPainting: "23px",
     fontSizePrice: "27px",
     fontSizeFavoriteIcon: "90px",
+    imageWidth: "320px",
   },
 };
 

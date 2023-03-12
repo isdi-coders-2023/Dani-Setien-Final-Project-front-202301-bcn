@@ -54,7 +54,7 @@ declare module "styled-components" {
       width: string;
     };
     breakpoint: {
-      small: string;
+      smallest: string;
     };
     cardPainting: {
       width: string;
@@ -65,6 +65,7 @@ declare module "styled-components" {
       fontSizeNameOfPainting: string;
       fontSizePrice: string;
       fontSizeFavoriteIcon: string;
+      imageWidth: string;
     };
   }
 }

@@ -30,7 +30,7 @@ const LoginPageStyled = styled.div`
     }
   }
 
-  @media screen and (min-width: ${(props) => props.theme.breakpoint.small}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoint.smallest}) {
     width: ${(props) => props.theme.form.width};
   }
 `;
