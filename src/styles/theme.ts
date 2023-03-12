@@ -58,7 +58,7 @@ const theme: DefaultTheme = {
   cardPainting: {
     width: "320px",
     buttonWidthAndHeigth: "80px",
-    buttonDistanceToEdge: "8px;",
+    buttonDistanceToEdge: "15px;",
     informationMarginTop: "10px",
     fontSizeAuthor: "30px",
     fontSizeNameOfPainting: "23px",

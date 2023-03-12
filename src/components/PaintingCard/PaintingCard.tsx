@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MdEdit } from "react-icons/md";
-import { GrClose } from "react-icons/gr";
+import { TfiClose } from "react-icons/tfi";
 import { CiHeart } from "react-icons/ci";
 import { Painting } from "../../types/paintingTypes";
 import Button from "../Button/Button";
@@ -12,7 +12,7 @@ interface PaintingCardProps {
 }
 
 const PaintingCard = ({
-  painting: { image, name, id, author, year, price, bidCount },
+  painting: { image, name, id, author, year, price, bidCount, width, height },
 }: PaintingCardProps): JSX.Element => {
   const { buttonEdit, buttonDelete } = ariaLabels;
 
@@ -22,8 +22,8 @@ const PaintingCard = ({
         <Image
           src={image}
           alt={name}
-          width={320}
-          height={400}
+          width={width}
+          height={height}
           className="image-container__image"
         />
         <Button
@@ -35,7 +35,7 @@ const PaintingCard = ({
         <Button
           className="button delete"
           ariaLabel={buttonDelete}
-          icon={<GrClose />}
+          icon={<TfiClose />}
           disabled={false}
         />
       </div>

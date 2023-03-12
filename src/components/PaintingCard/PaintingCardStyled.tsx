@@ -6,7 +6,7 @@ const PaintingCardStyled = styled.li`
   white-space: nowrap;
   overflow: clip;
 
-  margin: 10px;
+  margin-top: 30px;
 
   .image-container {
     display: flex;
@@ -15,6 +15,9 @@ const PaintingCardStyled = styled.li`
     &__image {
       object-fit: contain;
       object-position: bottom;
+
+      width: 320px;
+      height: fit-content;
     }
 
     .button {
@@ -26,13 +29,13 @@ const PaintingCardStyled = styled.li`
 
     .edit {
       position: absolute;
-      bottom: ${(props) => props.theme.cardPainting.buttonDistanceToEdge};
+      top: ${(props) => props.theme.cardPainting.buttonDistanceToEdge};
       left: ${(props) => props.theme.cardPainting.buttonDistanceToEdge};
     }
 
     .delete {
       position: absolute;
-      bottom: ${(props) => props.theme.cardPainting.buttonDistanceToEdge};
+      top: ${(props) => props.theme.cardPainting.buttonDistanceToEdge};
       right: ${(props) => props.theme.cardPainting.buttonDistanceToEdge};
     }
   }
@@ -74,6 +77,11 @@ const PaintingCardStyled = styled.li`
 
     font-size: ${(props) => props.theme.cardPainting.fontSizeFavoriteIcon};
     color: ${(props) => props.theme.colors.grayscale.darkest};
+  }
+
+  .button {
+    color: ${(props) => props.theme.colors.grayscale.darkest};
+    font-size: 25px;
   }
 `;
 
