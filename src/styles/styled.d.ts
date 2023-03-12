@@ -55,6 +55,10 @@ declare module "styled-components" {
     };
     breakpoint: {
       smallest: string;
+      small: string;
+      medium: string;
+      large: string;
+      largest: string;
     };
     cardPainting: {
       width: string;

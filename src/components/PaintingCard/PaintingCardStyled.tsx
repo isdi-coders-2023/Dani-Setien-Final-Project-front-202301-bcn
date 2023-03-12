@@ -88,6 +88,17 @@ const PaintingCardStyled = styled.li`
     justify-content: center;
     align-items: center;
   }
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoint.medium}) {
+    .button {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    :hover .button {
+      opacity: 1;
+    }
+  }
 `;
 
 export default PaintingCardStyled;
