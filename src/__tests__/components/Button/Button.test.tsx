@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { GrClose } from "react-icons/gr";
-
 import Button from "../../../components/Button/Button";
 
 describe("Given a Button component", () => {
