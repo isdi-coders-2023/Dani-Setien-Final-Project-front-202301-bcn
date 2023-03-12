@@ -1,9 +1,9 @@
-interface ariaLabelsStructure {
+interface AriaLabelsStructure {
   buttonEdit: string;
   buttonDelete: string;
 }
 
-export const ariaLabels: ariaLabelsStructure = {
+export const ariaLabels: AriaLabelsStructure = {
   buttonEdit: "edit",
   buttonDelete: "delete",
 };
