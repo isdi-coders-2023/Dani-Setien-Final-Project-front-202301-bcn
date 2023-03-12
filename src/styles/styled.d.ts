@@ -56,5 +56,15 @@ declare module "styled-components" {
     breakpoint: {
       small: string;
     };
+    cardPainting: {
+      width: string;
+      buttonWidthAndHeigth: string;
+      buttonDistanceToEdge: string;
+      informationMarginTop: string;
+      fontSizeAuthor: string;
+      fontSizeNameOfPainting: string;
+      fontSizePrice: string;
+      fontSizeFavoriteIcon: string;
+    };
   }
 }

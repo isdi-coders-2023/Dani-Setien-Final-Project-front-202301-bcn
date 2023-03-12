@@ -18,6 +18,7 @@ export interface Painting {
   highlightOrder: number;
   summary: string;
   image: string;
+  bidCount?: number;
 }
 
 export type Paintings = Painting[];

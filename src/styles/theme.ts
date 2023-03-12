@@ -55,6 +55,16 @@ const theme: DefaultTheme = {
   breakpoint: {
     small: "525px",
   },
+  cardPainting: {
+    width: "320px",
+    buttonWidthAndHeigth: "80px",
+    buttonDistanceToEdge: "8px;",
+    informationMarginTop: "10px",
+    fontSizeAuthor: "30px",
+    fontSizeNameOfPainting: "23px",
+    fontSizePrice: "27px",
+    fontSizeFavoriteIcon: "90px",
+  },
 };
 
 export default theme;
