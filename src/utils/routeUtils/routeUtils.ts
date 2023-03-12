@@ -1,9 +1,17 @@
-interface RouteUtilsStructure {
+interface FrontRouteUtilsStructure {
   homePage: string;
 }
 
-const routeUtils: RouteUtilsStructure = {
+export const frontRouteUtils: FrontRouteUtilsStructure = {
   homePage: "/",
 };
 
-export default routeUtils;
+interface BackRouteUtilsStructure {
+  loginEndpoint: string;
+  paintingsEndpoint: string;
+}
+
+export const backRouteUtils: BackRouteUtilsStructure = {
+  loginEndpoint: "user/login/",
+  paintingsEndpoint: "paintings",
+};
