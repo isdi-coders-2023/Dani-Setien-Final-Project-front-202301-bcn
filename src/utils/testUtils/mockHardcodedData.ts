@@ -22,7 +22,7 @@ export const mockPaintings: Paintings = [
     summary:
       "Colorful abstract painting with horizontal lines and curved shapes",
     image:
-      "https://icqwpkxwddqofeibjqcj.supabase.co/storage/v1/object/public/paitings/newLineUp.png?t=2023-03-11T16%3A09%3A57.512Z",
+      "https://icqwpkxwddqofeibjqcj.supabase.co/storage/v1/object/public/paitings/newLineUp.png?t=2023-03-12T13%3A23%3A46.999Z",
   },
   {
     id: "2",

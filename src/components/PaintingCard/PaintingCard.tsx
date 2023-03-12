@@ -5,29 +5,7 @@ import { CiHeart } from "react-icons/ci";
 import { Painting } from "../../types/paintingTypes";
 import Button from "../Button/Button";
 import { ariaLabels } from "../../utils/componentUtils/componentUtils";
-
-const painting1 = {
-  id: "1",
-  author: "Mary Heilmann",
-  name: "New Line Up",
-  year: "2018",
-  gallery: "Private collection",
-  technique: "Oil on canvas",
-  size: "40 x 50 in",
-  medium: "Painting",
-  materials: "Oil paint, canvas",
-  unique: true,
-  certificate: true,
-  rarity: "unique",
-  condition: "excellent",
-  signature: true,
-  price: 28000,
-  frame: false,
-  highlightOrder: 1,
-  summary: "Colorful abstract painting with horizontal lines and curved shapes",
-  image:
-    "https://icqwpkxwddqofeibjqcj.supabase.co/storage/v1/object/public/paitings/newLineUp.png?t=2023-03-11T16%3A09%3A57.512Z",
-};
+import PaintingCardStyled from "./PaintingCardStyled";
 
 interface PaintingCardProps {
   painting: Painting;
@@ -39,19 +17,39 @@ const PaintingCard = ({
   const { buttonEdit, buttonDelete } = ariaLabels;
 
   return (
-    <li key={id}>
-      <Image src={image} alt={name} />
-      <Button ariaLabel={buttonEdit} icon={<MdEdit />} disabled={false} />
-      <Button ariaLabel={buttonDelete} icon={<GrClose />} disabled={false} />
-      <section>
-        <div>
-          <span>{author}</span>
-          <CiHeart />
+    <PaintingCardStyled key={id}>
+      <div className="image-container">
+        <Image
+          src={image}
+          alt={name}
+          width={320}
+          height={400}
+          className="image-container__image"
+        />
+        <Button
+          className="button edit"
+          ariaLabel={buttonEdit}
+          icon={<MdEdit />}
+          disabled={false}
+        />
+        <Button
+          className="button delete"
+          ariaLabel={buttonDelete}
+          icon={<GrClose />}
+          disabled={false}
+        />
+      </div>
+      <section className="about">
+        <div className="information">
+          <span className="information__author">{author}</span>
+          <span className="information__name-and-year">{`${name}, ${year}`}</span>
+          <span className="information__price-and-bids">{`$${price} ${
+            bidCount ? `(${bidCount} bids)` : ""
+          }`}</span>
         </div>
-        <span>{`${name}, ${year}`}</span>
-        <span>{`${price} ${bidCount && `(${bidCount} bids)`}`}</span>
+        <CiHeart className="favorites-icon" aria-label="favorites" />
       </section>
-    </li>
+    </PaintingCardStyled>
   );
 };
 
