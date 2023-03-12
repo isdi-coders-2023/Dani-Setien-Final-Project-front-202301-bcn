@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import fetch from "node-fetch";
 import displayErrorModal from "../../components/LoginForm/modals/errorModal";
 import { loadPaintingsActionCreator } from "../../store/features/paintingsSlice/paintingsSlice";
 import { useAppDispatch } from "../../store/hooks";

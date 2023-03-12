@@ -13,5 +13,5 @@ interface BackRouteUtilsStructure {
 
 export const backRouteUtils: BackRouteUtilsStructure = {
   loginEndpoint: "user/login/",
-  paintingsEndpoint: "/paintings",
+  paintingsEndpoint: "paintings",
 };
