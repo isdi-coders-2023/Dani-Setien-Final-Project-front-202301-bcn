@@ -32,6 +32,8 @@ jest.mock("node-fetch", () =>
             "Colorful abstract painting with horizontal lines and curved shapes",
           image:
             "https://icqwpkxwddqofeibjqcj.supabase.co/storage/v1/object/public/paitings/newLineUp.png?t=2023-03-12T13%3A23%3A46.999Z",
+          width: 300,
+          height: 400,
         },
         {
           id: "2",
@@ -54,6 +56,8 @@ jest.mock("node-fetch", () =>
           summary: "Floral mural",
           image:
             "https://icqwpkxwddqofeibjqcj.supabase.co/storage/v1/object/public/paitings/charlesRayUntilted.png?t=2023-03-11T16%3A11%3A40.075Z",
+          width: 300,
+          height: 400,
         },
       ],
     }),
