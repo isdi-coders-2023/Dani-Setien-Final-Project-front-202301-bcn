@@ -21,14 +21,14 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe("Given a fetchToken function", () => {
+describe("Given a fetchTokenAndLogin function", () => {
   describe("When it is called to fetch an exisiting user's token", () => {
     test("Then it should log in the user", async () => {
       const token = "mockToken";
 
       const {
         result: {
-          current: { fetchToken },
+          current: { fetchTokenAndLogin },
         },
       } = renderHook(() => useToken(), {
         wrapper: Wrapper,
@@ -45,11 +45,50 @@ describe("Given a fetchToken function", () => {
 
       window.localStorage.setItem("token", token);
 
-      await act(async () => fetchToken());
+      await act(async () => fetchTokenAndLogin());
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
       );
+    });
+  });
+});
+
+describe("Given a removeTokenAndLogout function", () => {
+  describe("When it is called to delete a token", () => {
+    test("Then it should delete said token", async () => {
+      const token = "mockToken";
+      const emptyLocalStorageValue = 0;
+
+      const {
+        result: {
+          current: { removeTokenAndLogout },
+        },
+      } = renderHook(() => useToken(), {
+        wrapper: Wrapper,
+      });
+
+      window.localStorage.setItem("token", token);
+
+      await act(async () => removeTokenAndLogout());
+
+      const expectedEmptyLocalStorage = window.localStorage.length;
+
+      expect(expectedEmptyLocalStorage).toBe(emptyLocalStorageValue);
+    });
+
+    test("Then it should log out the user", async () => {
+      const {
+        result: {
+          current: { removeTokenAndLogout },
+        },
+      } = renderHook(() => useToken(), {
+        wrapper: Wrapper,
+      });
+
+      await act(async () => removeTokenAndLogout());
+
+      expect(mockDispatcher).toHaveBeenCalled();
     });
   });
 });
