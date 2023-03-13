@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { MdEdit } from "react-icons/md";
 import { TfiClose } from "react-icons/tfi";
-import { CiHeart } from "react-icons/ci";
 import { Painting } from "../../types/paintingTypes";
 import Button from "../Button/Button";
 import { ariaLabels } from "../../utils/componentUtils/componentUtils";
@@ -17,7 +16,7 @@ const PaintingCard = ({
   const { buttonEdit, buttonDelete } = ariaLabels;
 
   return (
-    <PaintingCardStyled key={id}>
+    <PaintingCardStyled key={id} role="listitem">
       <div className="image-container">
         <Image
           src={image}
@@ -47,7 +46,6 @@ const PaintingCard = ({
             bidCount ? `(${bidCount} bids)` : ""
           }`}</span>
         </div>
-        <CiHeart className="favorites-icon" aria-label="favorites" />
       </section>
     </PaintingCardStyled>
   );

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
-import PaintingsList from "../../../components/PaintingsList/PaintingsList";
-import { mockPaintings } from "../../../utils/testUtils/mockHardcodedData";
-import renderWithProviders from "../../../utils/testUtils/renderWithProviders";
+import PaintingsList from "../../components/PaintingsList/PaintingsList";
+import { mockPaintings } from "../../utils/testUtils/mockHardcodedData";
+import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 describe("Given a PaintingList component", () => {
   describe("When is given a list of two paintings", () => {
