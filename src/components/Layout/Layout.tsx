@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../store/hooks";
-import Loader from "../LoginForm/Loader/Loader";
+import Loader from "../Loader/Loader";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];

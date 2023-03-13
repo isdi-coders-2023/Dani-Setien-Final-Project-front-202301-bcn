@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "jest.config.js",
     "src/components/LoginForm/LoginForm.test.aquinomires",
-    "src/components/LoginForm/modals/errorModal.tss"
+    "src/utils/componentUtils/modals/errorModal.tss"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify";
-import LoginForm from "../../components/LoginForm/LoginForm";
 import Image from "next/image";
+import LoginForm from "../../components/LoginForm/LoginForm";
 import LoginPageStyled from "./LoginPageStyled";
 import useUser from "../../hooks/useUser/useUser";
 

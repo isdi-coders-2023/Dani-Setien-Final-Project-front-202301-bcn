@@ -1,7 +1,7 @@
 import decodeToken from "jwt-decode";
 import { useRouter } from "next/router";
 import fetch from "node-fetch";
-import displayErrorModal from "../../components/LoginForm/modals/errorModal";
+import displayErrorModal from "../../utils/componentUtils/modals/errorModal";
 import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
 import {
   setIsLoadingActionCreator,
