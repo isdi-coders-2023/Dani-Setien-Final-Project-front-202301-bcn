@@ -1,7 +1,11 @@
 import Image from "next/image";
+import { useAppSelector } from "../../store/hooks";
+import LogButton from "../LogButton/LogButton";
 import HeaderStyled from "./HeaderStyled";
 
 const Header = (): JSX.Element => {
+  const { isLogged } = useAppSelector((state) => state.user);
+
   return (
     <HeaderStyled>
       <Image
@@ -15,9 +19,8 @@ const Header = (): JSX.Element => {
 
       <span className="navigation-link">Home</span>
       <span className="navigation-link">Add</span>
-      <div className="button-container">
-        <button className="logout-button">Log out</button>
-      </div>
+
+      <LogButton isLogged={isLogged} />
     </HeaderStyled>
   );
 };

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { GrClose } from "react-icons/gr";
-import Button from "../../../components/Button/Button";
+import Button from "../../components/Button/Button";
 
 describe("Given a Button component", () => {
   describe("When rendered with the given an icon shaped as an 'X' sign", () => {
@@ -12,6 +12,7 @@ describe("Given a Button component", () => {
 
       render(
         <Button
+          className=""
           ariaLabel={buttonLabel}
           icon={buttonIconElement}
           disabled={false}

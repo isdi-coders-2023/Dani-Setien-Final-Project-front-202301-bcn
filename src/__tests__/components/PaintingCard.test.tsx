@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
-import PaintingCard from "../../../components/PaintingCard/PaintingCard";
-import { ariaLabels } from "../../../utils/componentUtils/componentUtils";
-import { mockPaintings } from "../../../utils/testUtils/mockHardcodedData";
-import renderWithProviders from "../../../utils/testUtils/renderWithProviders";
+import PaintingCard from "../../components/PaintingCard/PaintingCard";
+import { ariaLabels } from "../../utils/componentUtils/componentUtils";
+import { mockPaintings } from "../../utils/testUtils/mockHardcodedData";
+import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 const painting = mockPaintings[0];
 

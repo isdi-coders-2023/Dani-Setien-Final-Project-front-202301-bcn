@@ -128,11 +128,10 @@ describe("Given a LoginFormStyled component", () => {
     });
   });
 
-  describe("When the user fills the Form with too little information", () => {
+  describe("When the user fills the Form with only the email", () => {
     test("Then the Log in button should be disabled", async () => {
-      const mockUserCredentials: UserCredentials = {
+      const mockUserCredentials = {
         email: "admin@user.com",
-        password: "short",
       };
 
       renderWithProviders(<LoginForm loginUser={mockLoginUser} />);
@@ -146,11 +145,6 @@ describe("Given a LoginFormStyled component", () => {
 
       await act(
         async () => await userEvent.type(emailInput, mockUserCredentials.email)
-      );
-
-      await act(
-        async () =>
-          await userEvent.type(passwordInput, mockUserCredentials.password)
       );
 
       expect(loginButton).toHaveAttribute("disabled");

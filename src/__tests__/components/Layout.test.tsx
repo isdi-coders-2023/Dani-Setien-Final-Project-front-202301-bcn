@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
-import Layout from "../../../components/Layout/Layout";
-import LoginPage from "../../../pages/login";
-import renderWithProviders from "../../../utils/testUtils/renderWithProviders";
+import Layout from "../../components/Layout/Layout";
+import LoginPage from "../../pages/login";
+import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 jest.mock("next/router", () => require("next-router-mock"));
 
