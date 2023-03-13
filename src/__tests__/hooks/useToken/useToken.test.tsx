@@ -53,3 +53,42 @@ describe("Given a fetchToken function", () => {
     });
   });
 });
+
+describe("Given a removeToken function", () => {
+  describe("When it is called to delete a token", () => {
+    test("Then it should delete said token", async () => {
+      const token = "mockToken";
+      const emptyLocalStorageValue = 0;
+
+      const {
+        result: {
+          current: { removeToken },
+        },
+      } = renderHook(() => useToken(), {
+        wrapper: Wrapper,
+      });
+
+      window.localStorage.setItem("token", token);
+
+      await act(async () => removeToken());
+
+      const expectedEmptyLocalStorage = window.localStorage.length;
+
+      expect(expectedEmptyLocalStorage).toBe(emptyLocalStorageValue);
+    });
+
+    test("Then it should log out the user", async () => {
+      const {
+        result: {
+          current: { removeToken },
+        },
+      } = renderHook(() => useToken(), {
+        wrapper: Wrapper,
+      });
+
+      await act(async () => removeToken());
+
+      expect(mockDispatcher).toHaveBeenCalled();
+    });
+  });
+});
