@@ -3,8 +3,8 @@ import Masonry from "react-masonry-css";
 import PaintingCard from "../PaintingCard/PaintingCard";
 import usePaintings from "../../hooks/usePaintings/usePaintings";
 import { useAppSelector } from "../../store/hooks";
-import styles from "./PaintingsList.module.css";
 import { masonryBreakpoints } from "../../utils/stylesUtils/breakpoints";
+import PaintingsListStyled from "./PaintingsListStyled";
 
 const PaintingsList = (): JSX.Element => {
   const { getPaintings } = usePaintings();
@@ -15,15 +15,17 @@ const PaintingsList = (): JSX.Element => {
   }, [getPaintings]);
 
   return (
-    <Masonry
-      breakpointCols={masonryBreakpoints}
-      className={`${styles.paintings}`}
-      columnClassName={`${styles.paintings__column}`}
-    >
-      {paintings.map((painting) => (
-        <PaintingCard painting={painting} key={painting.id} />
-      ))}
-    </Masonry>
+    <PaintingsListStyled>
+      <Masonry
+        breakpointCols={masonryBreakpoints}
+        className="paintings"
+        columnClassName="paintings__column"
+      >
+        {paintings.map((painting) => (
+          <PaintingCard painting={painting} key={painting.id} />
+        ))}
+      </Masonry>
+    </PaintingsListStyled>
   );
 };
 

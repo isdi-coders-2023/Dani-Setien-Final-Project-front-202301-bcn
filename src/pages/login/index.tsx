@@ -2,10 +2,10 @@ import { ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import LoginPageStyled from "./LoginPageStyled";
 import useUser from "../../hooks/useUser/useUser";
 import { useAppSelector } from "../../store/hooks";
 import { frontRouteUtils } from "../../utils/routeUtils/routeUtils";
+import LoginPageStyled from "../../styles/pages/LoginPageStyled";
 
 const LoginPage = () => {
   const { loginUser } = useUser();

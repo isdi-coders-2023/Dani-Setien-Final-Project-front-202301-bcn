@@ -17,7 +17,7 @@ const PaintingCard = ({
   const { buttonEdit, buttonDelete } = ariaLabels;
 
   return (
-    <PaintingCardStyled key={id}>
+    <PaintingCardStyled key={id} role="listitem">
       <div className="image-container">
         <Image
           src={image}
