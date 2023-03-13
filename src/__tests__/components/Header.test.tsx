@@ -16,16 +16,16 @@ describe("Given a Header component", () => {
       expect(logo).toBeInTheDocument();
     });
 
-    test("Then it should show a Log out button", () => {
-      const expectedButtonText = "Log out";
+    test("Then it should show a Log in button", () => {
+      const expectedButtonText = "Log in";
 
       renderWithProviders(<Header />);
 
-      const logoutButton = screen.getByRole("button", {
+      const loginButton = screen.getByRole("button", {
         name: expectedButtonText,
       });
 
-      expect(logoutButton).toBeInTheDocument();
+      expect(loginButton).toBeInTheDocument();
     });
   });
 });
