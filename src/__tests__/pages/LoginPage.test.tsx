@@ -1,5 +1,9 @@
 import { screen } from "@testing-library/react";
+import Router from "next/router";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import LoginPage from "../../pages/login";
+import { UserState } from "../../types/userTypes";
 import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 
 jest.mock("next/router", () => require("next-router-mock"));
@@ -51,6 +55,29 @@ describe("Given a LoginPage", () => {
       const registerQuestion = screen.getByText(expectedText);
 
       expect(registerQuestion).toBeInTheDocument();
+    });
+  });
+
+  describe("When rendered by a logged in user", () => {
+    test("Then it should redirect the user to the Home Page", () => {
+      const loggedInState: UserState = {
+        id: "test",
+        token: "testToken",
+        username: "testSubject",
+        isLogged: true,
+      };
+
+      const preloadedState = { user: loggedInState };
+
+      const spyOnRouteChange = jest.fn();
+
+      Router.events.on("routeChangeStart", () => {
+        spyOnRouteChange();
+      });
+
+      renderWithProviders(<LoginPage />, preloadedState);
+
+      expect(spyOnRouteChange).toHaveBeenCalled();
     });
   });
 });
