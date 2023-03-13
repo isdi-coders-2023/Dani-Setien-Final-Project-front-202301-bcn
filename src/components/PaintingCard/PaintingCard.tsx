@@ -47,7 +47,6 @@ const PaintingCard = ({
             bidCount ? `(${bidCount} bids)` : ""
           }`}</span>
         </div>
-        <CiHeart className="favorites-icon" aria-label="favorites" />
       </section>
     </PaintingCardStyled>
   );
