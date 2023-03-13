@@ -1,7 +1,5 @@
 import { screen } from "@testing-library/react";
 import Router from "next/router";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import LoginPage from "../../pages/login";
 import { UserState } from "../../types/userTypes";
 import renderWithProviders from "../../utils/testUtils/renderWithProviders";

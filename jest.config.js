@@ -20,6 +20,7 @@ const customJestConfig = {
     "!src/styles/styled.d.ts",
     "!src/pages/_app.tsx",
     "!src/pages/_document.tsx",
+    "!src/styles/GlobalStyles.tsx",
   ],
 };
 

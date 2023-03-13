@@ -20,6 +20,7 @@ const PaintingsList = (): JSX.Element => {
         breakpointCols={masonryBreakpoints}
         className="paintings"
         columnClassName="paintings__column"
+        role="list"
       >
         {paintings.map((painting) => (
           <PaintingCard painting={painting} key={painting.id} />
