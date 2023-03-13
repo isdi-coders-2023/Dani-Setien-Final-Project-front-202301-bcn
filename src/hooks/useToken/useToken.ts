@@ -8,14 +8,14 @@ import { useAppDispatch } from "../../store/hooks";
 import { TokenPayload } from "../useUser/types";
 
 interface UseTokenStructure {
-  fetchToken: () => void;
-  removeToken: () => void;
+  fetchTokenAndLogin: () => void;
+  removeTokenAndLogout: () => void;
 }
 
 const useToken = (): UseTokenStructure => {
   const dispatch = useAppDispatch();
 
-  const fetchToken = useCallback(() => {
+  const fetchTokenAndLogin = useCallback(() => {
     const userToken = localStorage.getItem("token");
 
     if (userToken) {
@@ -25,13 +25,13 @@ const useToken = (): UseTokenStructure => {
     }
   }, [dispatch]);
 
-  const removeToken = () => {
+  const removeTokenAndLogout = () => {
     localStorage.removeItem("token");
 
     dispatch(logoutUserActionCreator());
   };
 
-  return { fetchToken, removeToken };
+  return { fetchTokenAndLogin, removeTokenAndLogout };
 };
 
 export default useToken;

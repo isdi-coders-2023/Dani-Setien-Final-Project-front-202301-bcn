@@ -9,11 +9,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const { isLoading } = useAppSelector((state) => state.ui);
-  const { fetchToken } = useToken();
+  const { fetchTokenAndLogin } = useToken();
 
   useEffect(() => {
-    fetchToken();
-  }, [fetchToken]);
+    fetchTokenAndLogin();
+  }, [fetchTokenAndLogin]);
 
   return (
     <>

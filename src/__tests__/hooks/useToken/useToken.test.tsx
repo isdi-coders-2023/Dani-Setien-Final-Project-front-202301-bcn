@@ -21,14 +21,14 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe("Given a fetchToken function", () => {
+describe("Given a fetchTokenAndLogin function", () => {
   describe("When it is called to fetch an exisiting user's token", () => {
     test("Then it should log in the user", async () => {
       const token = "mockToken";
 
       const {
         result: {
-          current: { fetchToken },
+          current: { fetchTokenAndLogin },
         },
       } = renderHook(() => useToken(), {
         wrapper: Wrapper,
@@ -45,7 +45,7 @@ describe("Given a fetchToken function", () => {
 
       window.localStorage.setItem("token", token);
 
-      await act(async () => fetchToken());
+      await act(async () => fetchTokenAndLogin());
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
@@ -54,7 +54,7 @@ describe("Given a fetchToken function", () => {
   });
 });
 
-describe("Given a removeToken function", () => {
+describe("Given a removeTokenAndLogout function", () => {
   describe("When it is called to delete a token", () => {
     test("Then it should delete said token", async () => {
       const token = "mockToken";
@@ -62,7 +62,7 @@ describe("Given a removeToken function", () => {
 
       const {
         result: {
-          current: { removeToken },
+          current: { removeTokenAndLogout },
         },
       } = renderHook(() => useToken(), {
         wrapper: Wrapper,
@@ -70,7 +70,7 @@ describe("Given a removeToken function", () => {
 
       window.localStorage.setItem("token", token);
 
-      await act(async () => removeToken());
+      await act(async () => removeTokenAndLogout());
 
       const expectedEmptyLocalStorage = window.localStorage.length;
 
@@ -80,13 +80,13 @@ describe("Given a removeToken function", () => {
     test("Then it should log out the user", async () => {
       const {
         result: {
-          current: { removeToken },
+          current: { removeTokenAndLogout },
         },
       } = renderHook(() => useToken(), {
         wrapper: Wrapper,
       });
 
-      await act(async () => removeToken());
+      await act(async () => removeTokenAndLogout());
 
       expect(mockDispatcher).toHaveBeenCalled();
     });
