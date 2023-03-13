@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import Loader from "../../../components/LoginForm/Loader/Loader";
+import Loader from "../../../components/Loader/Loader";
 import renderWithProviders from "../../../utils/testUtils/renderWithProviders";
 
 describe("Given a Loader component", () => {
