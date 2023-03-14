@@ -1,8 +1,5 @@
 import { rest } from "msw";
-import {
-  backRouteUtils,
-  frontRouteUtils,
-} from "../utils/routeUtils/routeUtils";
+import { backRouteUtils } from "../utils/routeUtils/routeUtils";
 import { mockPaintings, mockToken } from "../utils/testUtils/mockHardcodedData";
 
 const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL!;

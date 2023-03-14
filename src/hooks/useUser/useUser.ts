@@ -14,6 +14,7 @@ import {
   backRouteUtils,
 } from "../../utils/routeUtils/routeUtils";
 import { BackLoginResponse, TokenPayload } from "./types";
+import definedResponses from "../../utils/responseUtils";
 
 interface UseUserStructure {
   loginUser: (userCredentials: UserCredentials) => Promise<void>;
@@ -39,9 +40,7 @@ const useUser = (): UseUserStructure => {
       });
 
       if (!backResponse.ok) {
-        const rejectedCredentialsMessage = "Invalid user credentials";
-
-        throw new Error(rejectedCredentialsMessage);
+        throw new Error(definedResponses.rejectedCredentials.message);
       }
 
       const { token } = (await backResponse.json()) as BackLoginResponse;

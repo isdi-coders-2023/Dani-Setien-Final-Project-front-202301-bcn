@@ -16,7 +16,9 @@ jobs:
       - name: Node Modules
         run: npm ci
       - name: Coverage
-        run: npm run test:coverage -- --passWithNoTests
+        run: npm run test:coverage
+        env:
+          NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

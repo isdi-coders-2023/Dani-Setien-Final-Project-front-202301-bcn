@@ -6,7 +6,6 @@ import { errorHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
 import { store } from "../../../store";
 import { loadPaintingsActionCreator } from "../../../store/features/paintingsSlice/paintingsSlice";
-import definedResponses from "../../../utils/responseUtils";
 import { mockPaintings } from "../../../utils/testUtils/mockHardcodedData";
 import Wrapper from "../../../utils/testUtils/Wrapper";
 
@@ -39,11 +38,8 @@ describe("Given a usePaintings function", () => {
     });
   });
 
-  describe("When it is called to get a list of paintings but it receives an error response", () => {
-    test("Then it should show call the function to show the user the error message", async () => {
-      const expectedResponseMessage =
-        definedResponses.internalServerError.message;
-
+  describe("When it is called to get a list of paintings but receives an error response", () => {
+    test("Then it should call the function to show the user the error message", async () => {
       server.resetHandlers(...errorHandlers);
 
       const {
