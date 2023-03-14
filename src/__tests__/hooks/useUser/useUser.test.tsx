@@ -1,5 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
+import { toast } from "react-toastify";
 import { act } from "react-dom/test-utils";
 import { store } from "../../../store";
 import { loginUserActionCreator } from "../../../store/features/userSlice/userSlice";
@@ -8,6 +9,8 @@ import { TokenPayload } from "../../../hooks/useUser/types";
 import useUser from "../../../hooks/useUser/useUser";
 import Wrapper from "../../../utils/testUtils/Wrapper";
 import { mockToken } from "../../../utils/testUtils/mockHardcodedData";
+import { server } from "../../../mocks/server";
+import { errorHandlers } from "../../../mocks/handlers";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -16,6 +19,8 @@ beforeAll(() => {
 afterEach(() => {
   jest.clearAllMocks();
 });
+
+const mockDisplayErrorModal = jest.spyOn(toast, "error");
 
 jest.mock("jwt-decode", () => jest.fn());
 
@@ -58,6 +63,24 @@ describe("Given a loginUser function", () => {
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
       );
+    });
+  });
+
+  describe("When it is called with credentials but receives an error response", () => {
+    test("Then it should call the function to show the user the error message", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: Wrapper,
+      });
+
+      await act(async () => loginUser(userCredentials));
+
+      expect(mockDisplayErrorModal).toHaveBeenCalled();
     });
   });
 });
