@@ -15,5 +15,6 @@ jobs:
         run: npm ci
 
       - name: 🧪 Testing
-        run: npm test -- --passWithNoTests
-        #env:
+        run: npm test
+        env:
+          NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}

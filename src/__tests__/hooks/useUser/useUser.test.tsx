@@ -1,5 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
+import { toast } from "react-toastify";
 import { act } from "react-dom/test-utils";
 import { store } from "../../../store";
 import { loginUserActionCreator } from "../../../store/features/userSlice/userSlice";
@@ -7,23 +8,25 @@ import { User, UserCredentials } from "../../../types/userTypes";
 import { TokenPayload } from "../../../hooks/useUser/types";
 import useUser from "../../../hooks/useUser/useUser";
 import Wrapper from "../../../utils/testUtils/Wrapper";
+import { mockToken } from "../../../utils/testUtils/mockHardcodedData";
+import { errorHandlers } from "../../../mocks/handlers";
+import { server } from "../../../mocks/server";
+
+beforeAll(() => {
+  jest.clearAllMocks();
+});
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
-const mockDispatcher = jest.spyOn(store, "dispatch");
+const mockDisplayErrorModal = jest.spyOn(toast, "error");
 
 jest.mock("jwt-decode", () => jest.fn());
 
 jest.mock("next/router", () => require("next-router-mock"));
 
-jest.mock("node-fetch", () =>
-  jest.fn().mockResolvedValue({
-    json: jest.fn().mockResolvedValue({ token: "mockToken" }),
-    ok: true,
-  })
-);
+const mockDispatcher = jest.spyOn(store, "dispatch");
 
 const userCredentials: UserCredentials = {
   email: "felix@bauhaus.com",
@@ -52,7 +55,7 @@ describe("Given a loginUser function", () => {
 
       const mockUser: User = {
         ...mockTokenPayload,
-        token: "mockToken",
+        token: mockToken,
       };
 
       await act(async () => loginUser(userCredentials));
@@ -60,6 +63,24 @@ describe("Given a loginUser function", () => {
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockUser)
       );
+    });
+  });
+
+  describe("When it is called with credentials but receives an error response", () => {
+    test("Then it should call the function to show the user the error message", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: Wrapper,
+      });
+
+      await act(async () => loginUser(userCredentials));
+
+      expect(mockDisplayErrorModal).toHaveBeenCalled();
     });
   });
 });

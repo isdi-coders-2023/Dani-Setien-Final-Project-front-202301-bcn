@@ -5,6 +5,7 @@ import { loadPaintingsActionCreator } from "../../store/features/paintingsSlice/
 import { useAppDispatch } from "../../store/hooks";
 import { backRouteUtils } from "../../utils/routeUtils/routeUtils";
 import { BackPaintingsResponse } from "./types";
+import definedResponses from "../../utils/responseUtils";
 
 interface UsePaintingsStructure {
   getPaintings: () => Promise<void>;
@@ -19,6 +20,10 @@ const usePaintings = () => {
   const getPaintings = useCallback(async () => {
     try {
       const response = await fetch(`${apiUrl}${paintingsEndpoint}`);
+
+      if (!response.ok) {
+        throw new Error(definedResponses.internalServerError.message);
+      }
 
       const paintingsFromApi = (await response.json()) as BackPaintingsResponse;
 
