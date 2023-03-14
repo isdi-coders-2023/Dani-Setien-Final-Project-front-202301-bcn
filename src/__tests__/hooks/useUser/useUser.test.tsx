@@ -7,23 +7,21 @@ import { User, UserCredentials } from "../../../types/userTypes";
 import { TokenPayload } from "../../../hooks/useUser/types";
 import useUser from "../../../hooks/useUser/useUser";
 import Wrapper from "../../../utils/testUtils/Wrapper";
+import { mockToken } from "../../../utils/testUtils/mockHardcodedData";
+
+beforeAll(() => {
+  jest.clearAllMocks();
+});
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
-const mockDispatcher = jest.spyOn(store, "dispatch");
-
 jest.mock("jwt-decode", () => jest.fn());
 
 jest.mock("next/router", () => require("next-router-mock"));
 
-jest.mock("node-fetch", () =>
-  jest.fn().mockResolvedValue({
-    json: jest.fn().mockResolvedValue({ token: "mockToken" }),
-    ok: true,
-  })
-);
+const mockDispatcher = jest.spyOn(store, "dispatch");
 
 const userCredentials: UserCredentials = {
   email: "felix@bauhaus.com",
@@ -52,7 +50,7 @@ describe("Given a loginUser function", () => {
 
       const mockUser: User = {
         ...mockTokenPayload,
-        token: "mockToken",
+        token: mockToken,
       };
 
       await act(async () => loginUser(userCredentials));

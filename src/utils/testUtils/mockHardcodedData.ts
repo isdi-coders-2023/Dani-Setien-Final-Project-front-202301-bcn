@@ -1,5 +1,7 @@
 import { Paintings } from "../../types/paintingTypes";
 
+export const mockToken = "mockToken";
+
 export const mockPaintings: Paintings = [
   {
     id: "1",
