@@ -30,3 +30,13 @@ export const handlers = [
     );
   }),
 ];
+
+export const errorHandlers = [
+  rest.post(`${apiUrl}${loginEndpoint}`, (req, res, ctx) => {
+    return res(ctx.status(500));
+  }),
+
+  rest.get(`${apiUrl}${paintingsEndpoint}`, (req, res, ctx) => {
+    return res(ctx.status(500));
+  }),
+];
